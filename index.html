@@ -12,11 +12,11 @@
     <section class="bookInventory__mainMenu">
     <h1 class="bookInventory__mainTitle">BookTown</h1>
     <form class="bookInventory__addBook">
-        <div class="bookInventory__inputTitle"><input type="text" value="Title" class="bookInventory__inputFields"  name="title" required></div>
-        <div class="bookInventory__inputAuthor"><input type="text" value="Author" class="bookInventory__inputFields" name="author" required></div>
-        <div class="bookInventory__inputImage"><input type="url" value="Image URL" class="bookInventory__inputFields" name="url"></div>
-        <div class="bookInventory__inputPrice"><input type="text" value="Price" class="bookInventory__inputFields" name="price" required></div>
-        <select name="inStock" id="bookInventory__inStock">
+        <div class="bookInventory__inputTitle"><input type="text" placeholder="Title" value="" class="bookInventory__inputFields" name="title" required></div>
+        <div class="bookInventory__inputAuthor"><input type="text" placeholder="Author" class="bookInventory__inputFields" name="author" required></div>
+        <div class="bookInventory__inputImage"><input type="url" placeholder="Image URL" class="bookInventory__inputFields" name="url"></div>
+        <div class="bookInventory__inputPrice"><input type="text" placeholder="Price" class="bookInventory__inputFields" name="price" required></div>
+        <select name="inStock" id="bookInventory__inStock" class="bookInventory__inputFields">
             <option value="inStock">In Stock</option>
             <option value="outStock">Out of Stock</option>
         </select>
@@ -24,7 +24,7 @@
     </form>
 </section>
     <section class="bookInventory__listedBooks">
-        <div><img src="images/killbird.png" class="bookInventory__img"></div>
+        <div class="bookInventory__img-container"><img src="images/killbird.png" class="bookInventory__img"></div>
         <div class="bookInventory__bookInfo">
        <p class="bookInventory__title">To Kill a Mocking bird</p>
         <p class="bookInventory__author">Harper Lee</p>
@@ -33,12 +33,9 @@
         </div>
         <div class="bookInventory__deleteBox"> <input type="checkbox" class="bookInventory__checkBox" name="checkbox">
             <i class="fa-regular fa-trash-can"></i></div>
-    </div>
     </section>
 </section>
-    </body>
-</body>
 <script src="app.js"></script>
-</body>
+    </body>
 </html>
 

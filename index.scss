@@ -12,12 +12,12 @@ html, body {
     display: grid;
     grid-template-columns: repeat(2, auto);
     position: relative;
-    border: 5px solid teal;
+
 
     &__mainTitle {
         grid-column: 1 / 2;
         text-align: left;
-        border: 5px solid blue;
+        margin-top: 0;
     }
 
     &__addBook {
@@ -29,29 +29,65 @@ html, body {
         height: 300px;
         margin: auto;
         display: block;
-        
+        box-shadow: (0 10px 15px rgba(0, 0 , 0, .15));
+        transition: (.3s);
+        position: relative;
+        transform: translateY(100px);
+        z-index: 500;
+        width: 200px;
+        border: 1px solid #eee;
+
+    }
+
+    &__inputFields {
+        width: 100%;
+        position: relative;
+        z-index: 3;
+        height: 35px;
+        background: none;
+        border: none;
+        padding: 5px 0;
+        border-bottom: 1px solid #777;
+        color: #555;
+    }
+
+    input:focus::placeholder {
+        color: transparent;
     }
 
     &__listedBooks {
         grid-column: 2 / 3;
         display: grid;
         grid-template-columns: repeat(3,auto);
-        border: 5px solid orange;
+    
+
+        
 
     }
+
+    &__img-container{
+            display: grid;
+            align-items: start;
+            justify-content: center;
+            margin-left: -100px;
+    }
+
+    
     &__img {
         grid-column: 1 / 2;
-        width: 100px;
-        border: 5px solid pink;
+        width: 150px;
+        height: 200px;
+        display: grid;
+        align-items: start;
+        justify-content: center;
+        
     }
     &__bookInfo {
         grid-column: 2 / 3;
-        border: 5px solid green;
     }
 
     &__deleteBox {
         grid-column: 3 / 4;
-        border: 5px solid yellow;
         display: flex;
         flex-direction: column ;
         justify-content: space-between;
@@ -60,15 +96,17 @@ html, body {
 
     }
     &__checkBox{
-        align-self: center
+        align-self: center;
+        margin-top: 50px;
+        
     }
 
 
     i {
         margin-left: auto;
         margin-right: auto;
-        align-self: flex-end;
-        border: 5px solid orange;
+        align-self:flex-end;
+        margin-bottom: 10px;
     }
 
 

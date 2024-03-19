@@ -12,12 +12,11 @@ html, body {
   display: grid;
   grid-template-columns: repeat(2, auto);
   position: relative;
-  border: 5px solid teal;
 }
 .bookInventory__mainTitle {
   grid-column: 1/2;
   text-align: left;
-  border: 5px solid blue;
+  margin-top: 0;
 }
 .bookInventory__addBook {
   grid-column: 1/2;
@@ -28,25 +27,52 @@ html, body {
   height: 300px;
   margin: auto;
   display: block;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+  transition: 0.3s;
+  position: relative;
+  transform: translateY(100px);
+  z-index: 500;
+  width: 200px;
+  border: 1px solid #eee;
+}
+.bookInventory__inputFields {
+  width: 100%;
+  position: relative;
+  z-index: 3;
+  height: 35px;
+  background: none;
+  border: none;
+  padding: 5px 0;
+  border-bottom: 1px solid #777;
+  color: #555;
+}
+.bookInventory input:focus::placeholder {
+  color: transparent;
 }
 .bookInventory__listedBooks {
   grid-column: 2/3;
   display: grid;
   grid-template-columns: repeat(3, auto);
-  border: 5px solid orange;
+}
+.bookInventory__img-container {
+  display: grid;
+  align-items: start;
+  justify-content: center;
+  margin-left: -100px;
 }
 .bookInventory__img {
   grid-column: 1/2;
-  width: 100px;
-  border: 5px solid pink;
+  width: 150px;
+  height: 200px;
+  display: grid;
+  align-items: start;
+  justify-content: center;
 }
 .bookInventory__bookInfo {
   grid-column: 2/3;
-  border: 5px solid green;
 }
 .bookInventory__deleteBox {
   grid-column: 3/4;
-  border: 5px solid yellow;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -54,12 +80,13 @@ html, body {
 }
 .bookInventory__checkBox {
   align-self: center;
+  margin-top: 50px;
 }
 .bookInventory i {
   margin-left: auto;
   margin-right: auto;
   align-self: flex-end;
-  border: 5px solid orange;
+  margin-bottom: 10px;
 }
 
 /*# sourceMappingURL=index.css.map */
