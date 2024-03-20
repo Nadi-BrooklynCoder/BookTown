@@ -10,8 +10,10 @@ html, body {
 
 .bookInventory {
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   position: relative;
+  width: 100%;
+  height: 100%;
 }
 .bookInventory__mainTitle {
   grid-column: 1/2;
@@ -28,7 +30,6 @@ html, body {
   margin: auto;
   display: block;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
-  transition: 0.3s;
   position: relative;
   transform: translateY(100px);
   z-index: 500;
@@ -55,6 +56,7 @@ html, body {
   grid-template-columns: repeat(3, auto);
 }
 .bookInventory__img-container {
+  grid-column: 3/4;
   display: grid;
   align-items: start;
   justify-content: center;
@@ -69,16 +71,17 @@ html, body {
   justify-content: center;
 }
 .bookInventory__bookInfo {
-  grid-column: 2/3;
+  grid-column: 4/5;
 }
 .bookInventory__deleteBox {
-  grid-column: 3/4;
+  grid-column: 5/6;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
 .bookInventory__checkBox {
+  grid-column: 5/6;
   align-self: center;
   margin-top: 50px;
 }
@@ -86,7 +89,54 @@ html, body {
   margin-left: auto;
   margin-right: auto;
   align-self: flex-end;
-  margin-bottom: 10px;
+  margin-bottom: 50px;
+}
+
+@media screen and (max-width: 1200px) {
+  .bookInventory {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  .bookInventory__mainMenu {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .bookInventory__mainTitle {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .bookInventory__addBook {
+    grid-column: 1;
+    grid-row: 3;
+  }
+  .bookInventory__listedBooks {
+    grid-column: 1;
+    grid-row: 4;
+  }
+  .bookInventory__img-container {
+    grid-column: 1;
+    grid-row: 4;
+  }
+  .bookInventory__img {
+    grid-column: 1;
+    grid-row: 4;
+  }
+  .bookInventory__bookInfo {
+    grid-column: 1;
+    grid-row: 5;
+  }
+  .bookInventory__deleteBox {
+    grid-column: 1;
+    grid-row: 6;
+  }
+  .bookInventory__checkBox {
+    grid-column: 1;
+    grid-row: 6;
+  }
+  .bookInventory i {
+    grid-column: 2;
+    grid-row: 6;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */
