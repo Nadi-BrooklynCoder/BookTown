@@ -2,7 +2,7 @@ html, body {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   display: grid;
   background-color: #f0f4f0;
@@ -14,38 +14,28 @@ html, body {
   position: relative;
   width: 100%;
   height: 100%;
+  margin: 0 auto;
 }
-.bookInventory__mainTitle {
+.bookInventory__header {
   grid-column: 1/2;
-  text-align: left;
-  margin-top: 0;
+  margin: 0 auto;
+  border: 5px solid black;
+  height: 70px;
 }
-.bookInventory__addBook {
+.bookInventory h1 {
+  font-size: 30px;
+}
+.bookInventory__book-form {
+  border: 5px solid black;
+  width: 500px;
+  max-width: 100%;
   grid-column: 1/2;
-  grid-row: 1/7;
-  display: none;
-  padding: 20px 40px;
-  background: #fff;
-  height: 300px;
-  margin: auto;
-  display: block;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
-  position: relative;
-  transform: translateY(100px);
-  z-index: 500;
-  width: 200px;
-  border: 1px solid #eee;
+  margin: 0 auto;
+  margin-top: -100px;
+  height: 500px;
 }
 .bookInventory__inputFields {
-  width: 100%;
-  position: relative;
-  z-index: 3;
-  height: 35px;
-  background: none;
-  border: none;
-  padding: 5px 0;
-  border-bottom: 1px solid #777;
-  color: #555;
+  width: 80%;
 }
 .bookInventory input:focus::placeholder {
   color: transparent;
@@ -54,13 +44,18 @@ html, body {
   grid-column: 2/3;
   display: grid;
   grid-template-columns: repeat(3, auto);
+  border: 5px solid black;
+  margin-top: -100px;
+  height: 700px;
+  width: 100%;
 }
 .bookInventory__img-container {
   grid-column: 3/4;
   display: grid;
-  align-items: start;
-  justify-content: center;
+  align-items: stretch;
   margin-left: -100px;
+  justify-content: space-between;
+  align-content: space-between;
 }
 .bookInventory__img {
   grid-column: 1/2;
@@ -114,24 +109,20 @@ html, body {
     grid-row: 4;
   }
   .bookInventory__img-container {
-    grid-column: 1;
-    grid-row: 4;
-  }
-  .bookInventory__img {
-    grid-column: 1;
+    grid-column: 2;
     grid-row: 4;
   }
   .bookInventory__bookInfo {
     grid-column: 1;
-    grid-row: 5;
+    grid-row: 6;
   }
   .bookInventory__deleteBox {
-    grid-column: 1;
-    grid-row: 6;
+    grid-column: 2;
+    grid-row: 5;
   }
   .bookInventory__checkBox {
-    grid-column: 1;
-    grid-row: 6;
+    grid-column: 2;
+    grid-row: 5;
   }
   .bookInventory i {
     grid-column: 2;

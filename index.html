@@ -9,20 +9,22 @@
 </head>
 <body>
  <section class="bookInventory">
-    <section class="bookInventory__mainMenu">
-    <h1 class="bookInventory__mainTitle">BookTown</h1>
-    <form class="bookInventory__addBook">
-        <div class="bookInventory__inputTitle"><input type="text" placeholder="Title" value="" class="bookInventory__inputFields" name="title" required></div>
-        <div class="bookInventory__inputAuthor"><input type="text" placeholder="Author" class="bookInventory__inputFields" name="author" required></div>
-        <div class="bookInventory__inputImage"><input type="url" placeholder="Image URL" class="bookInventory__inputFields" name="url"></div>
-        <div class="bookInventory__inputPrice"><input type="text" placeholder="Price" class="bookInventory__inputFields" name="price" required></div>
+    <section class="bookInventory__header">
+    <h1>BookTown</h1>
+    </section>
+    <section class="bookInventory__book-form">
+    <form class="bookInventory__addBook" id="formInfo">
+        <div class="bookInventory__inputTitle"><label for="title"><input type="text" placeholder="Title" value="" class="bookInventory__inputFields" id="title" required></label></div>
+        <div class="bookInventory__inputAuthor"><label for="author"><input type="text" placeholder="Author" class="bookInventory__inputFields" name="author" id="author" required></label></div>
+        <div class="bookInventory__inputImage"><input type="url" placeholder="Image URL" class="bookInventory__inputFields" name="url" id="urlSite"></div>
+        <div class="bookInventory__inputPrice"><label for="price"></label><input type="text" placeholder="Price" class="bookInventory__inputFields" name="price" id="price" required></label></div>
         <select name="inStock" id="bookInventory__inStock" class="bookInventory__inputFields">
             <option value="inStock">In Stock</option>
             <option value="outStock">Out of Stock</option>
         </select>
-        <div class="bookInventory__inputAuthor"><input type="submit" value="Add Book" name="newBook"></div>
+        <button type="submit">Add Book</button>
     </form>
-</section>
+    </section>
     <section class="bookInventory__listedBooks">
         <div class="bookInventory__img-container"><img src="images/killbird.png" class="bookInventory__img"></div>
         <div class="bookInventory__bookInfo">
@@ -33,7 +35,7 @@
         </div>
         <div class="bookInventory__deleteBox"> <input type="checkbox" class="bookInventory__checkBox" name="checkbox">
             </div>
-            <i class="fa-regular fa-trash-can fa-2xl"></i>
+            <i onclick="del()" class="fa-regular fa-trash-can fa-2xl"></i>
     </section>
 </section>
 <script src="app.js"></script>
