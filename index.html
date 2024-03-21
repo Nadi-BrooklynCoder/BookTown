@@ -14,7 +14,7 @@
     </section>
     <section class="bookInventory__book-form">
     <form class="bookInventory__addBook" id="formInfo">
-        <div class="bookInventory__inputTitle"><label for="title"><input type="text" placeholder="Title" value="" class="bookInventory__inputFields" id="title" required></label></div>
+        <div class="bookInventory__inputTitle"><label for="title"><input type="text" placeholder="Title" class="bookInventory__inputFields" id="title" required></label></div>
         <div class="bookInventory__inputAuthor"><label for="author"><input type="text" placeholder="Author" class="bookInventory__inputFields" name="author" id="author" required></label></div>
         <div class="bookInventory__inputImage"><input type="url" placeholder="Image URL" class="bookInventory__inputFields" name="url" id="urlSite"></div>
         <div class="bookInventory__inputPrice"><label for="price"></label><input type="text" placeholder="Price" class="bookInventory__inputFields" name="price" id="price" required></label></div>
@@ -22,23 +22,23 @@
             <option value="inStock">In Stock</option>
             <option value="outStock">Out of Stock</option>
         </select>
-        <button type="submit">Add Book</button>
+        <input type="submit" onclick="addBook()" value="Add Book">
     </form>
     </section>
-    <section class="bookInventory__listedBooks">
-        <div class="bookInventory__img-container"><img src="images/killbird.png" class="bookInventory__img"></div>
+    <section class="bookInventory__listedBooks" id="bookInventory__listedBooks">
+        <!-- <div class="bookInventory__img-container"><img src="" class="bookInventory__img" id="bookInventory__img"></div>
         <div class="bookInventory__bookInfo">
-       <p class="bookInventory__title">To Kill a Mocking bird</p>
-        <p class="bookInventory__author">Harper Lee</p>
-        <p class="bookInventory__stock">In Stock</p>
-        <p class="bookInventory__price">Price</p>
-        </div>
-        <div class="bookInventory__deleteBox"> <input type="checkbox" class="bookInventory__checkBox" name="checkbox">
-            </div>
+       <p class="bookInventory__title" id="bookInventory__title"></p>
+        <p class="bookInventory__author" id="bookInventory__author"></p>
+        <p class="bookInventory__stock" id="bookInventory__stock"></p>
+        <p class="bookInventory__price" id="bookInventory__price"></p>
+        </div> -->
+        <!-- <div class="bookInventory__deleteBox"> <input type="checkbox" class="bookInventory__checkBox" name="checkbox"> -->
+            <!-- </div> -->
             <i onclick="del()" class="fa-regular fa-trash-can fa-2xl"></i>
     </section>
 </section>
-<script src="app.js"></script>
     </body>
+    <script src="app.js"></script>
 </html>
 
