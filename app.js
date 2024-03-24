@@ -14,8 +14,6 @@ function addBook() {
     localStorage.setItem('books', JSON.stringify(books));
 
     getBooks();
-    
-
 }
 //Retrieving Data
 function getBooks() {
@@ -41,17 +39,26 @@ function getBooks() {
             deleteBox.setAttribute('class', 'checkBox');
             bookInfo.innerHTML = 
                 `<img src="${b.imageBook}" alt="Book Image">
-                <p class>${b.title}</p>
+                <p class="title">${b.title}</p>
                 <p>${b.author}</p>
                 <p>${b.inventory}</p>
                 <p>${b.price}</p>
                 <input type="checkbox" name="checkBox">`
             ;
-           document.getElementById('bookInventory__listedBooks').append(bookInfo)
+           document.getElementById('bookInventory__listedBooks').appendChild(bookInfo)
         })
 } else {
     console.log('No Books');
 }
+let styledBook = document.querySelectorAll('.bookInventory__bookInfo');
+
+
+
+for (let title of styledBook) {
+    title.getElementsByClassName('bookInventory__title').style.color = "purple";
+}
+
+
 }
 
 //Deleting Data
