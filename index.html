@@ -10,26 +10,31 @@
 <body>
  <section class="bookInventory">
     <section class="bookInventory__header">
-    <h1>BookTown</h1>
+    <aside>BookTown</aside>
     </section>
-    <section class="bookInventory__book-form">
-    <form class="bookInventory__addBook" id="formInfo">
-        <div class="bookInventory__inputTitle"><label for="title"><input type="text" placeholder="Title" class="bookInventory__inputFields" id="title" required></label></div>
-        <div class="bookInventory__inputAuthor"><label for="author"><input type="text" placeholder="Author" class="bookInventory__inputFields" name="author" id="author" required></label></div>
-        <div class="bookInventory__inputImage"><input type="url" placeholder="Image URL" class="bookInventory__inputFields" name="url" id="urlSite"></div>
-        <div class="bookInventory__inputPrice"><label for="price"></label><input type="text" placeholder="Price" class="bookInventory__inputFields" name="price" id="price" required></label></div>
-        <select name="inStock" id="bookInventory__inStock" class="bookInventory__inputFields">
-            <option value="inStock">In Stock</option>
-            <option value="outStock">Out of Stock</option>
+    <section class="book-form">
+    <form action="post" method="post" target="self">
+        <input type="text" placeholder="Title" class="form__title inputField" id="title" required>
+        <input type="text" placeholder="Author" class="form__author inputField"; name="author" id="author" required>
+        <input type="url" placeholder="Image URL" class="form__image inputField" name="url" id="urlSite">
+       <input type="text" placeholder="Price" class="form__price inputField" name="price" id="price" required></label>
+        <select name="inStock" id="stock" class="form__stock inputField">
+            <option value="In Stock">In Stock</option>
+            <option value="Out of Stock">Out of Stock</option>
         </select>
-        <input type="submit" onclick="addBook()" value="Add Book">
+        <input type="button" onclick="addBook()" value="Add Book" name="submit">
     </form>
+    <i class="fa-regular fa-trash-can" id="listedBooks__deleteBtn" onclick="deleteBooks()"></i>
     </section>
-    <section class="bookInventory__listedBooks" id="bookInventory__listedBooks">
-            <i onclick="del()" class="fa-regular fa-trash-can fa-2xl"></i>
-    </section>
+    <section class="listedBooks" id="listedBooks">
+       
+
+        
+    </section>   
 </section>
+<script src="app.js"></script>
     </body>
-    <script src="app.js"></script>
 </html>
+
+
 

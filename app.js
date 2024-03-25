@@ -1,10 +1,11 @@
 function addBook() {
     //Creating Data
     const book = { 
+        id: Date.now(),
         title: document.getElementById('title').value,
         author: document.getElementById('author').value,
         imageBook: document.getElementById('urlSite').value,
-        inventory: document.getElementById('bookInventory__inStock').value,
+        inventory: document.getElementById('stock').value,
         price: document.getElementById('price').value
     }
 
@@ -13,60 +14,91 @@ function addBook() {
     books.push(book);
     localStorage.setItem('books', JSON.stringify(books));
 
-    getBooks();
+    appendBook(book)
+
+    console.log('addBook function called');
 }
+
+
+function appendBook(b) {
+    const book = document.createElement('li')
+    const bookInfo = document.createElement('div')
+    const imageBook = document.createElement('img');
+    const title = document.createElement('p');
+    const author = document.createElement('p');
+    const stock = document.createElement('p');
+    const price = document.createElement('p');
+    const deleteBox = document.createElement('input');
+    deleteBox.type = "checkbox";
+    deleteBox.value = b.id;
+    deleteBox.setAttribute('name', 'deleteBox')
+    deleteBox.setAttribute('class', b.id)
+    book.setAttribute("class", "listedBooks__book")
+    bookInfo.setAttribute('class','listedBooks__bookInfo')
+    imageBook.setAttribute('src', b.imageBook);
+    title.setAttribute('class', 'listedBooks__title');
+    author.setAttribute('class', 'listedBooks__author');
+    stock.setAttribute('class', 'listedBooks__stock');
+    price.setAttribute('class', 'listedBooks__price');
+    deleteBox.setAttribute('class', 'checkBox');
+    title.textContent = b.title;
+    author.textContent = b.author;
+    stock.textContent = b.inventory
+    price.textContent = b.price
+    bookInfo.append(title, author, stock, price);
+    book.append(imageBook, bookInfo, deleteBox);
+   document.getElementById('listedBooks').append(book);
+
+   console.log('appendBook function called for book with id: ' + b.id);
+
+}
+
+
 //Retrieving Data
 function getBooks() {
-    document.getElementById('bookInventory__listedBooks').innerHTML = '';
-
-    const booksTwo = JSON.parse(localStorage.getItem('books')) || []
+const booksTwo = JSON.parse(localStorage.getItem('books')) || []
    
     if(booksTwo.length > 0) {
-         booksTwo.forEach((b) => {
-            const bookInfo = document.createElement('div')
-            const imageBook = document.createElement('img');
-            const title = document.createElement('div');
-            const author = document.createElement('div');
-            const stock = document.createElement('div');
-            const price = document.createElement('div');
-            const deleteBox = document.createElement('input')
-            bookInfo.setAttribute('class','bookInventory__bookInfo')
-            imageBook.setAttribute('src', b.imageBook);
-            title.setAttribute('class', 'bookInventory__title');
-            author.setAttribute('class', 'bookInventory__author');
-            stock.setAttribute('class', 'bookInventory__stock');
-            price.setAttribute('class', 'bookInventory__price');
-            deleteBox.setAttribute('class', 'checkBox');
-            bookInfo.innerHTML = 
-                `<img src="${b.imageBook}" alt="Book Image">
-                <p class="title">${b.title}</p>
-                <p>${b.author}</p>
-                <p>${b.inventory}</p>
-                <p>${b.price}</p>
-                <input type="checkbox" name="checkBox">`
-            ;
-           document.getElementById('bookInventory__listedBooks').appendChild(bookInfo)
+        booksTwo.forEach((b) => {
+    
         })
 } else {
     console.log('No Books');
 }
-let styledBook = document.querySelectorAll('.bookInventory__bookInfo');
-
-
-
-for (let title of styledBook) {
-    title.getElementsByClassName('bookInventory__title').style.color = "purple";
-}
-
-
 }
 
 //Deleting Data
 
-function deleteBooks() {
+function deleteBooks(id) {
+    let books = JSON.parse(localStorage.getItem('books')) || [];
+
+    books = books. filter(book => book.id != Number(id));
+
+    localStorage.setItem('books', JSON.stringify(books));
+
+    getBooks();
+
+    console.log('it workds')
+}
+
+
+
+window.onload = () =>{ 
+document.getElementById('listedBooks__deleteBtn').addEventListener('click', () => {
+    const checkBoxes = document.getElementsByName('deleteBox');
+
+    checkBoxes.forEach(checkBox => {
+        if(checkBox.checked) {
+            deleteBooks(Number(checkBox.value))
+            checkBox.checked = false;
+        }
+    })
+});
+
+getBooks();  
+  
 
 }
 
 
-window.onload = getBooks();
 

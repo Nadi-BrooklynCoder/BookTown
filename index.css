@@ -1,7 +1,6 @@
 html, body {
   width: 100vh;
   height: 100vw;
-  box-sizing: border-box;
   margin: 0 auto;
   padding: 0;
   background-color: #f0f4f0;
@@ -10,116 +9,102 @@ html, body {
 .bookInventory {
   display: grid;
   grid-template-columns: 1fr 3fr 4fr;
-  padding: 30px;
+  padding: 30;
   margin: 0 auto;
 }
 .bookInventory__header {
   display: flex;
   align-items: center;
-  padding: 0;
+  padding-left: 100px;
 }
-.bookInventory h1 {
-  font-size: 30px;
+.bookInventory__header aside {
+  font-size: 50px;
+  position: relative;
+  transform: translate(25px, 51px) rotate(270deg);
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(68, 147, 248);
+  text-align: center;
 }
-.bookInventory__book-form {
-  border: 5px solid black;
-  width: 500px;
-  max-width: 100%;
-  grid-column: 1/2;
-  margin: 0 auto;
-  margin-top: -100px;
-  height: 500px;
-}
-.bookInventory__inputFields {
-  width: 80%;
-}
-.bookInventory input:focus::placeholder {
-  color: transparent;
-}
-.bookInventory__listedBooks {
+
+.book-form {
   display: grid;
+  justify-items: center;
+  align-items: center;
   grid-template-rows: auto;
+  grid-template-columns: 1fr;
+}
+.book-form form {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  gap: 15px;
+  justify-items: center;
+  border-left: 1px solid #0E044B;
+  padding-top: 100px;
+  padding-bottom: 50px;
+  padding-right: 50px;
+  padding-left: 200px;
+}
+.book-form .inputField {
+  font-size: 1.2rem;
+  width: 300px;
+  border: none;
+  border-bottom: 2px solid #0E044B;
+  outline: none;
+  margin: 5px 0;
+  padding: 8px 0;
+  background-color: #F3EDE7;
+}
+
+.listedBooks {
+  display: grid;
   max-height: 700px;
   row-gap: 10px;
-  overflow-y: auto;
+  grid-template-rows: auto;
+  overflow-y: scroll;
+  width: 500px;
 }
-.bookInventory__bookInfo {
+.listedBooks__book {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
+  column-gap: 10px;
   padding: 5px;
   max-height: 150px;
 }
-.bookInventory__img {
-  width: 90px;
-  height: 135px;
+.listedBooks__book img {
+  width: 100px;
+  height: 140px;
   object-fit: cover;
   grid-column: 1;
 }
-.bookInventory__author {
+.listedBooks__bookInfo {
   grid-column: 2;
 }
-.bookInventory__title {
+.listedBooks__stock {
+  background-color: rgb(55, 162, 55);
+  border-radius: 10%/50%;
+  text-align: center;
   grid-column: 2;
+  width: 50%;
+  padding: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
 }
-.bookInventory__price {
+.listedBooks__title {
   grid-column: 2;
+  margin: 0 auto;
 }
-.bookInventory__deleteBox {
+.listedBooks input[name=deleteBox] {
+  width: 20px;
   grid-column: 3;
 }
-.bookInventory__checkBox {
-  grid-column: 5/6;
-  align-self: center;
-  margin-top: 50px;
+.listedBooks__price {
+  grid-column: 2;
 }
-.bookInventory i {
-  margin-left: auto;
-  margin-right: auto;
-  align-self: flex-end;
-  margin-bottom: 50px;
-}
-
-@media screen and (max-width: 1200px) {
-  .bookInventory {
-    grid-template-columns: 1fr;
-    gap: 50px;
-  }
-  .bookInventory__mainMenu {
-    grid-column: 1;
-    grid-row: 1;
-  }
-  .bookInventory__mainTitle {
-    grid-column: 1;
-    grid-row: 2;
-  }
-  .bookInventory__addBook {
-    grid-column: 1;
-    grid-row: 3;
-  }
-  .bookInventory__listedBooks {
-    grid-column: 1;
-    grid-row: 4;
-  }
-  .bookInventory__img-container {
-    grid-column: 2;
-    grid-row: 4;
-  }
-  .bookInventory__bookInfo {
-    grid-column: 1;
-    grid-row: 6;
-  }
-  .bookInventory__deleteBox {
-    grid-column: 2;
-    grid-row: 5;
-  }
-  .bookInventory__checkBox {
-    grid-column: 2;
-    grid-row: 5;
-  }
-  .bookInventory i {
-    grid-column: 2;
-    grid-row: 6;
-  }
+.listedBooks__price::after {
+  content: "$";
 }
 
 /*# sourceMappingURL=index.css.map */
