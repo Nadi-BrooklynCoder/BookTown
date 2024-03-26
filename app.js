@@ -1,7 +1,7 @@
 function addBook() {
     //Creating Data
     const book = { 
-        id: Date.now(),
+        deleteBox: Date.now(),
         title: document.getElementById('title').value,
         author: document.getElementById('author').value,
         imageBook: document.getElementById('urlSite').value,
@@ -30,17 +30,17 @@ function appendBook(b) {
     const price = document.createElement('p');
     const deleteBox = document.createElement('input');
     deleteBox.type = "checkbox";
-    deleteBox.value = b.id;
+    deleteBox.value = b.deleteBox;
     deleteBox.setAttribute('name', 'deleteBox')
-    deleteBox.setAttribute('class', b.id)
+    deleteBox.setAttribute('class', b.deleteBox)
+    deleteBox.setAttribute('class', 'checkBox')
     book.setAttribute("class", "listedBooks__book")
     bookInfo.setAttribute('class','listedBooks__bookInfo')
     imageBook.setAttribute('src', b.imageBook);
     title.setAttribute('class', 'listedBooks__title');
     author.setAttribute('class', 'listedBooks__author');
     stock.setAttribute('class', 'listedBooks__stock');
-    price.setAttribute('class', 'listedBooks__price');
-    deleteBox.setAttribute('class', 'checkBox');
+    price.setAttribute('class', 'listedBooks__price');;
     title.textContent = b.title;
     author.textContent = b.author;
     stock.textContent = b.inventory
@@ -49,7 +49,7 @@ function appendBook(b) {
     book.append(imageBook, bookInfo, deleteBox);
    document.getElementById('listedBooks').append(book);
 
-   console.log('appendBook function called for book with id: ' + b.id);
+   console.log('appendBook function called for book with id: ' + b.deleteBox);
 
 }
 
@@ -60,7 +60,7 @@ const booksTwo = JSON.parse(localStorage.getItem('books')) || []
    
     if(booksTwo.length > 0) {
         booksTwo.forEach((b) => {
-    
+            appendBook(b);
         })
 } else {
     console.log('No Books');
@@ -69,34 +69,35 @@ const booksTwo = JSON.parse(localStorage.getItem('books')) || []
 
 //Deleting Data
 
-function deleteBooks(id) {
+function deleteBooks(deleteBox) {
     let books = JSON.parse(localStorage.getItem('books')) || [];
 
-    books = books. filter(book => book.id != Number(id));
+
+
+    books = books. filter(book => book.deleteBox != Number(deleteBox));
 
     localStorage.setItem('books', JSON.stringify(books));
 
-    getBooks();
-
-    console.log('it workds')
+    const checkBox = document.querySelector('.checkBox[value="' + deleteBox + '"]');
+    if(checkBox){
+        checkBox.closest('.listedBooks__book').remove();
+    }
+    
+    console.log('it works')
 }
-
-
 
 window.onload = () =>{ 
 document.getElementById('listedBooks__deleteBtn').addEventListener('click', () => {
-    const checkBoxes = document.getElementsByName('deleteBox');
+    const checkBoxes = Array.from(document.getElementsByName('deleteBox'));
+    const checkedBoxes = checkBoxes.filter(checkBox => checkBox.checked)
 
-    checkBoxes.forEach(checkBox => {
-        if(checkBox.checked) {
+    checkedBoxes.forEach(checkBox => {
             deleteBooks(Number(checkBox.value))
             checkBox.checked = false;
-        }
     })
 });
 
 getBooks();  
-  
 
 }
 
