@@ -8,17 +8,13 @@ function addBook() {
         inventory: document.getElementById('stock').value,
         price: document.getElementById('price').value
     }
-
     //Storing Data
     let books = JSON.parse(localStorage.getItem('books'))|| [];
     books.push(book);
     localStorage.setItem('books', JSON.stringify(books));
 
     appendBook(book)
-
-    console.log('addBook function called');
 }
-
 
 function appendBook(b) {
     const book = document.createElement('li')
@@ -47,43 +43,34 @@ function appendBook(b) {
     price.textContent = b.price
     bookInfo.append(title, author, stock, price);
     book.append(imageBook, bookInfo, deleteBox);
-   document.getElementById('listedBooks').append(book);
-
-   console.log('appendBook function called for book with id: ' + b.deleteBox);
-
+    document.getElementById('listedBooks').append(book);
 }
-
 
 //Retrieving Data
 function getBooks() {
 const booksTwo = JSON.parse(localStorage.getItem('books')) || []
    
-    if(booksTwo.length > 0) {
-        booksTwo.forEach((b) => {
-            appendBook(b);
+if(booksTwo.length > 0) {
+    booksTwo.forEach((b) => {
+        appendBook(b);
         })
-} else {
-    console.log('No Books');
-}
+    } else {
+        console.log('No Books');
+    }
 }
 
 //Deleting Data
-
 function deleteBooks(deleteBox) {
-    let books = JSON.parse(localStorage.getItem('books')) || [];
+let books = JSON.parse(localStorage.getItem('books')) || [];
 
+books = books. filter(book => book.deleteBox != Number(deleteBox));
 
+localStorage.setItem('books', JSON.stringify(books));
 
-    books = books. filter(book => book.deleteBox != Number(deleteBox));
-
-    localStorage.setItem('books', JSON.stringify(books));
-
-    const checkBox = document.querySelector('.checkBox[value="' + deleteBox + '"]');
+const checkBox = document.querySelector('.checkBox[value="' + deleteBox + '"]');
     if(checkBox){
         checkBox.closest('.listedBooks__book').remove();
     }
-    
-    console.log('it works')
 }
 
 window.onload = () =>{ 
